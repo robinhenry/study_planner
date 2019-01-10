@@ -106,7 +106,7 @@ class Schedule(object):
     def print_date(self, day):
         '''Print a list of topics to revise today.'''
         self.update()
-        to_be_printed = 'Schedule: ' + self.name + '\n'
+        to_be_printed = 'Class: ' + self.name + '\n'
         to_be_printed += '----------------------------\n'
         try:
             topics = self.dates[day]
@@ -186,7 +186,7 @@ class Application(tk.Frame):
         new_calendar_entry.grid(row=2, column=0)
 
         # Specify default frequency of new calendar.
-        tk.Label(self.master, text="Frequency").grid(row=3, column=0)
+        tk.Label(self.master, text="Default study frequency").grid(row=3, column=0)
 
         new_calendar_freq = tk.StringVar()
         new_calendar_freq_entry = tk.Entry(self.master,
@@ -219,7 +219,7 @@ class Application(tk.Frame):
         add_name_entry.grid(row=9, column=0)
 
         # Specify frequency at which to study the topic.
-        tk.Label(self.master, text="Frequency").grid(row=10, column=0)
+        tk.Label(self.master, text="Study frequency").grid(row=10, column=0)
         add_frequency_entry = tk.Entry(self.master)
         add_frequency_entry.grid(row=11, column=0)
 
@@ -290,7 +290,7 @@ class Application(tk.Frame):
     def display_schedule(self):
         ''' Display the topics to be studied on a specific date.'''
 
-        tk.Label(self.master, text='Display schedule',
+        tk.Label(self.master, text='Display timetable',
                 font='Verdana 12 bold').grid(row=0, column=1, columnspan=2)
         tk.Label(self.master, text='Date').grid(row=1, column=1)
 
@@ -300,7 +300,7 @@ class Application(tk.Frame):
                                            textvariable=self.display_date)
         display_date_entry.grid(row=1, column=2)
 
-        tk.Button(self.master, text='Refresh schedule',
+        tk.Button(self.master, text='Refresh timetable',
                   command=self.update_display_schedule).grid(row=2, column=2)
 
         return
